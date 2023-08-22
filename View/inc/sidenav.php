@@ -26,6 +26,8 @@
               <a class="dropdown-item" href="#">My Tasks</a>
               <a class="dropdown-item" href="#">Settings</a>
               <div class="dropdown-divider"></div>
+              <span class="ml-4"> <?php $data = $_SESSION['profile']; echo $data['firstname'].' '.$data['lastname'] ?> </span>
+              <div class="dropdown-divider"></div>
               <a class="dropdown-item text-danger" href="../logout.php">Sign out</a>
             </div>
           </li>
@@ -96,6 +98,18 @@
                   </span>
                 </a>
               </li>
+
+              <!-- <li class="sidebar-nav-item">
+                <a href="../admin/units.php" class="sidebar-nav-link">
+                  <span class="sidebar-nav-abbr">
+                    <i data-feather="minimize"></i>
+                  </span>
+                  <span class="sidebar-nav-name">
+                    Units
+                  </span>
+                </a>
+              </li> -->
+
             </ul>
           </li>
 

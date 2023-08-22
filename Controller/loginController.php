@@ -22,10 +22,12 @@
 
                 // Update login table, input last login timestamp
                 $upd = $conn->query("UPDATE $table SET `is_online` = 1 WHERE `id` = ".$res['id']);
+                $details = $conn->query("SELECT * FROM tbl_userprofile WHERE user_id = ".$res['id']);
 
                 session_start();
                 session_unset($_SESSION['err_message']);
                 $_SESSION['userid'] = $res['id'];
+                $_SESSION['profile'] = $details->fetch_array();
 
                 // redirect to admin dashboard
                 header('location:view/admin/');

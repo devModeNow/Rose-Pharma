@@ -1,6 +1,6 @@
 <?php
 
-    require '../header.php';
+    require '../inc/header.php';
 
 ?>
 
@@ -11,6 +11,6 @@
 
 <?php
 
-    require '../footer.php';
+    require '../inc/footer.php';
 
 ?>

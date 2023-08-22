@@ -7,10 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="dist/css/adminx.css" media="screen" />
+    <!-- Notfy -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
     <?php if(isset($_SESSION['userid'])): ?>
     <link rel="stylesheet" type="text/css" href="../../dist/css/adminx.css" media="screen" />
+    <?php else: ?>
+    <link rel="stylesheet" type="text/css" href="dist/css/adminx.css" media="screen" />
     <?php endif; ?>
   </head>
   <body>
