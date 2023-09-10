@@ -1,4 +1,4 @@
-<select class="form-control" required name="unit">
+<select class="form-control" required id="unit">
     <option value=""> Choose Unit </option>
 
 <?php

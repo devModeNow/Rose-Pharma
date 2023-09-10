@@ -52,7 +52,7 @@
     require_once '../../Controller/medicineController.php';
 ?>
 
-      <script src="../../resources/js/medecine.js"></script>
+      <script src="../../resources/js/medicine.js"></script>
   
 <?php
 

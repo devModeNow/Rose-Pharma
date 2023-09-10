@@ -1,16 +1,23 @@
+
+<table class="table table-actions table-striped table-hover mb-0" id="data-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Code</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Price</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
 <?php
-
-    require '../../Controller/dbController.php';
-
-    if(isset($_SESSION['userid'])){
 
         $getAllProducts = $conn->query("SELECT * FROM tbl_pharma_products ORDER BY code DESC");
 
         if($getAllProducts->num_rows > 0){
 
-            $data = $getAllProducts->fetch_array();
-
-            foreach($data as $result):
+            foreach($getAllProducts as $result):
 
 ?>
 
@@ -19,10 +26,10 @@
                 <td> <?= $result['name'] ?> </td>
                 <td> <?= $result['category_id'] ?> </td>
                 <td> <?= $result['type_id'] ?> </td>
-                <td> <?= $result['unit_id'] ?> </td>
                 <td> <?= $result['price'] ?> </td>
                 <td>
-                    
+                  <span class="oi oi-trash mr-2"></span>
+                  <span class="oi oi-pencil ml-2"></span>
                 </td>
             </tr>
 
@@ -41,6 +48,7 @@
             
         }
 
-    }
-
 ?>
+
+                        </tbody>
+                    </table>

@@ -25,7 +25,7 @@
                 <div class="col-4">
                     <div class="card p-3">
                       <h4> Add Category </h4>
-                      <input type="text" id="catName" name="category" onkeyup="checkCetagory()" class="form-control">
+                      <input type="text" id="catName" name="category" onkeyup="checkCategory()" class="form-control">
                       <div id="errMessage" class="mt-1 mb-1"></div>
                       <input type="submit" onclick="addCategory()" id="addCat" name="addCategory" value="Add" class="btn btn-sm btn-primary">
                     </div>
@@ -52,7 +52,7 @@
     require_once '../../Controller/medicineController.php';
 ?>
 
-      <script src="../../resources/js/medecine.js"></script>
+      <script src="../../resources/js/medicine.js"></script>
 
 <?php
 

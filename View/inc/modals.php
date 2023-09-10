@@ -1,4 +1,5 @@
 <!-- Add Product Modal -->
+
 <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -9,21 +10,25 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
-            <div class="row">
+          <div class="row col-12">
+            <span id="warningMessage" class="mt-1 mb-1"></span>
+          </div>
+            <div class="row mt-2">
                 <div class="col-4">
                     <label for="Code"> Product Code </label>
-                    <input type="text" name="prodCode" onkeyup="checkCode()" class="form-control">
+                    <input type="text" onkeyup="checkProductCode()" id="prodCode" class="form-control">
+                    <div id="errMessage" class="mt-1 mb-1"></div>
                 </div>
 
                 <div class="col-4">
                     <label for="Name"> Name </label>
-                    <input type="text" name="prodName" class="form-control">
+                    <input type="text" onkeyup="checkProductName()" id="prodName" class="form-control">
+                    <div id="prodnameErrMessage" class="mt-1 mb-1"></div>
                 </div>
 
                 <div class="col-4">
                     <label for="Price"> Price </label>
-                    <input type="text" name="price" class="form-control">
+                    <input type="text" id="price" class="form-control">
                 </div>
             </div>
 
@@ -45,28 +50,28 @@
 
                 <div class="col-4">
                     <label for="Code"> Quantity </label>
-                    <input type="number" required name="quantity" class="form-control">
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-4">
-                    <label for="Name" class="text-danger"> *Is prescription required? <input type="checkbox" name="precription" class="form-control"> </label>
+                    <input type="number" id="quantity" required name="quantity" class="form-control">
                 </div>
             </div>
 
             <div class="row mt-5">
                 <div class="col-12">
                     <label for="Price"> Description </label>
-                    <textarea name="description" class="form-control"></textarea>
+                    <textarea id="description" class="form-control"></textarea>
                 </div>
             </div>
 
-        </form>
+            <div class="row mt-1">
+                <div class="col-auto form-check ml-3">
+                  <input type="checkbox" id="isPrescribe" class="form-check-input">
+                  <label class="form-check-label" for="prescribe">Medicine requires prescription</label>
+                </div>
+            </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="addProd" onclick="addMedicine()" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

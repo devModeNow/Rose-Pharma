@@ -1,4 +1,4 @@
-<select class="form-control" required name="type">
+<select class="form-control" required id="type">
     <option value=""> Choose Type </option>
 
 <?php
@@ -9,13 +9,11 @@
 
     if($sel->num_rows > 0){
 
-        $data = $sel->fetch_array();
-
-        foreach($result as $data):
+        foreach($sel as $data):
 
 ?>
 
-        <option value="<?= $result['id'] ?>"> <?= $result['name'] ?> </option>
+        <option value="<?= $data['id'] ?>"> <?= $data['name'] ?> </option>
 
 <?php
 

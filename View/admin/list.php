@@ -32,28 +32,7 @@
                     </div>
                     <div class="card-body">
                     <div class="table-responsive-md">
-                    <table class="table table-actions table-striped table-hover mb-0" data-table>
-                      <thead>
-                        <tr>
-                          <th scope="col">
-                            <label class="custom-control custom-checkbox m-0 p-0">
-                              <input type="checkbox" class="custom-control-input table-select-all">
-                              <span class="custom-control-indicator"></span>
-                            </label>
-                          </th>
-                          <th scope="col">Code</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Category</th>
-                          <th scope="col">Type</th>
-                          <th scope="col">Unit</th>
-                          <th scope="col">Price</th>
-                          <th scope="col"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
                         <?php include 'product/product_list.php' ?>
-                      </tbody>
-                    </table>
                   </div>
                     </div>
                 </div>    
@@ -67,7 +46,7 @@
 
 ?>
 
-    <script src="../../src/js/custom.js"></script>
+      <script src="../../resources/js/medicine.js"></script>
     
 <?php
 

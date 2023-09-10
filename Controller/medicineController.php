@@ -144,6 +144,97 @@ if(isset($_POST['deleteType'])){
 
 }
 
+if(isset($_POST['typeProdCode'])){
+
+    $prodCode = validate($conn->real_escape_string($_POST['typeProdCode']));
+
+    $select = $conn->query("SELECT * FROM tbl_pharma_products WHERE code = \"$prodCode\"");
+
+    if($select->num_rows > 0){
+
+        $data = array(
+                        'status' => true,
+                        'message' => "Product Code Already Exists",
+                        'class' => "text-danger"
+                    );
+
+        echo json_encode($data);
+
+    } else {
+
+        $data = array(
+            'status' => false,
+            'message' => "All goods",
+            'class' => "text-danger"
+        );
+
+        echo json_encode($data);
+
+    }
+
+}
+
+if(isset($_POST['typeProdName'])){
+
+    $prodName = validate($conn->real_escape_string($_POST['typeProdName']));
+
+    $select = $conn->query("SELECT * FROM tbl_pharma_products WHERE name = \"$prodName\"");
+
+    if($select->num_rows > 0){
+
+        $data = array(
+                        'status' => true,
+                        'message' => "Product Name Already Exists",
+                        'class' => "text-danger"
+                    );
+
+        echo json_encode($data);
+
+    } else {
+
+        $data = array(
+            'status' => false,
+            'message' => "All goods",
+            'class' => "text-danger"
+        );
+
+        echo json_encode($data);
+
+    }
+
+}
+
+// Add Product/Medicine Function
+if(isset($_POST['addMed'])){
+
+    $data = json_decode($_POST['data'], true);
+
+    $code = validate($conn->real_escape_string($data['code']));
+    $name = validate($conn->real_escape_string($data['name']));
+    $price = validate($conn->real_escape_string($data['price']));
+    $category = validate($conn->real_escape_string($data['category']));
+    $type = validate($conn->real_escape_string($data['type']));
+    $quantity = validate($conn->real_escape_string($data['quantity']));
+    $description = validate($conn->real_escape_string($data['description']));
+    $prescribe = validate($conn->real_escape_string($data['prescribe']));
+
+    $insertMed = $conn->query("INSERT INTO tbl_pharma_products (`code`,`name`,`price`,`category_id`,`type_id`,`quantity`,`description`,`prescription`)
+                              VALUES (\"$code\",\"$name\",\"$price\",\"$category\",\"$type\",\"$quantity\",\"$description\",\"$prescribe\")");
+
+    if($insertMed){
+
+        $data = array(
+            'status' => true,
+            'message' => "Product Added Successfully",
+            'class' => "text-success"
+        );
+    
+        echo json_encode($data);
+        
+    }
+
+}
+
     function validate($data){
         $data = htmlspecialchars($data);
         $data = htmlentities($data);

@@ -1,3 +1,4 @@
+// Instantiate DataTable
 $(document).ready(function() {
     var table = $('#data-table').DataTable();
 
@@ -6,7 +7,7 @@ $(document).ready(function() {
     }); 
   });
 
-function checkCatagory(){
+function checkCategory(){
 
     let value = $('#catName').val();
 
@@ -169,5 +170,121 @@ function deleteType(id){
             
         }
     });
+
+}
+
+
+function checkProductCode(){
+
+    let value = $('#prodCode').val();
+
+    $.ajax({
+        type: 'POST',
+        url: '../../Controller/medicineController.php',
+        cache: false,
+        dataType: 'json',
+        data: {typeProdCode:value},
+        success: function(data){
+
+            if(data.status == true){
+                $('#errMessage').text(data.message).addClass(data.class);
+                $('#addProd').prop('disabled','disabled');
+            } else {
+                $('#errMessage').text("").removeClass(data.class);
+                $('#addProd').prop('disabled',false);
+            }
+
+        }
+    });
+}
+
+function checkProductName(){
+
+    let value = $('#prodName').val();
+
+    $.ajax({
+        type: 'POST',
+        url: '../../Controller/medicineController.php',
+        cache: false,
+        dataType: 'json',
+        data: {typeProdName:value},
+        success: function(data){
+
+            if(data.status == true){
+                $('#prodnameErrMessage').text(data.message).addClass(data.class);
+                $('#addProd').prop('disabled','disabled');
+            } else {
+                $('#prodnameErrMessage').text("").removeClass(data.class);
+                $('#addProd').prop('disabled',false);
+            }
+
+        }
+    });
+}
+
+function addMedicine(){
+    
+    let prodCode = $('#prodCode').val();
+    let prodName = $('#prodName').val();
+    let price = $('#price').val();
+    let category = $('#category').val();
+    let type = $('#type').val();
+    let quantity = $('#quantity').val();
+    let description = $('#description').val();
+    let isPrescribe = "";
+
+    if($('#isPrescribe').is(':checked')){
+        isPrescribe = true;
+    } else {
+        isPrescribe = false;
+    }
+
+    let productData = {
+            'code':prodCode, 
+            'name':prodName, 
+            'price':price, 
+            'category':category, 
+            'type':type, 
+            'quantity':quantity, 
+            'description':description, 
+            'prescribe':isPrescribe,
+        }
+
+    if(prodCode == "" || prodName == "" || price == "" || category == "" || type == "" || quantity == ""){
+
+        $('#warningMessage').text('Please enter required details').addClass('alert alert-warning')
+        setTimeout(()=>{ $('#warningMessage').hide() },5000)
+
+    } else {
+
+        // console.log(JSON.stringify(productData));
+
+        $.ajax({
+            type: 'POST',
+            url: '../../Controller/medicineController.php',
+            cache: false,
+            dataType: 'json',
+            data: {addMed:'Add Medicine', data:JSON.stringify(productData)},
+            success: function(data){
+
+                if(data.status == true){
+                    var notyf = new Notyf();
+                    notyf.success(data.message);
+                    setTimeout(()=>{location.reload()}, 1000)
+                    
+
+                } else {
+                    $('#errMessage').text("")
+                }
+                
+    
+            }, error: function(err){
+
+                console.log(err)
+
+            }
+        })
+
+    }
 
 }
