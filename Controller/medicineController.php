@@ -235,6 +235,72 @@ if(isset($_POST['addMed'])){
 
 }
 
+// Update Product/Medicine Function
+if(isset($_POST['updateMed'])){
+
+    // $data = json_decode($_POST['data'], true);
+
+    $id = validate($conn->real_escape_string($_POST['key']));
+    $code = validate($conn->real_escape_string($_POST['code']));
+    $name = validate($conn->real_escape_string($_POST['name']));
+    $price = validate($conn->real_escape_string($_POST['price']));
+    $category = validate($conn->real_escape_string($_POST['category']));
+    $type = validate($conn->real_escape_string($_POST['type']));
+    $quantity = validate($conn->real_escape_string($_POST['quantity']));
+    $description = validate($conn->real_escape_string($_POST['description']));
+    @$prescribe = validate($conn->real_escape_string($_POST['prescribe']));
+
+    if($prescribe){
+        $prescribe = true;
+    } else {
+        $prescribe = false;
+    }
+
+    $updateMed = $conn->query("UPDATE tbl_pharma_products SET code = \"$code\",
+                                                              name = \"$name\", 
+                                                              price = \"$price\", 
+                                                              category_id = \"$category\", 
+                                                              type_id = \"$type\", 
+                                                              quantity = \"$quantity\", 
+                                                              description = \"$description\", 
+                                                              prescription = \"$prescribe\" WHERE id = \"$id\"");
+
+    if($updateMed){
+
+        // $data = array(
+        //     'status' => true,
+        //     'message' => "Product Updated Successfully",
+        //     'class' => "text-success"
+        // );
+    
+        // echo json_encode($data);
+
+        header('location:http://127.0.0.1/Rose-Pharma/view/admin/list.php');
+        
+    }
+
+}
+
+if(isset($_POST['deleteMed'])){
+
+    $key = validate($conn->real_escape_string($_POST['key']));
+
+    $delete = $conn->query("DELETE FROM tbl_pharma_products WHERE id = \"$key\"");
+
+    if($delete){
+
+        $data = array(
+            'status' => true,
+            'message' => "Medicine deleted successfully",
+            'class' => "text-success"
+        );
+
+        echo json_encode($data);
+
+    }
+
+}
+
     function validate($data){
         $data = htmlspecialchars($data);
         $data = htmlentities($data);

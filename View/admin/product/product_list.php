@@ -23,17 +23,21 @@
 
             <tr>
                 <td> <?= $result['code'] ?> </td>
-                <td> <?= $result['name'] ?> </td>
+                <td> <?= $result['name'] ?> <br> <?php if($result['prescription']) { ?> <span class="badge badge-warning"> Requires prescription </span> <?php } ?> </td>
                 <td> <?= $result['category_id'] ?> </td>
                 <td> <?= $result['type_id'] ?> </td>
                 <td> <?= $result['price'] ?> </td>
                 <td>
-                  <span class="oi oi-trash mr-2"></span>
-                  <span class="oi oi-pencil ml-2"></span>
+                  <span onclick="destroy( <?= $result['id'] ?>)" class="oi oi-trash mr-2"></span>
+                  <span data-toggle="modal" data-target="#editProduct_<?= $result['id'] ?>" class="oi oi-pencil ml-2"></span>
                 </td>
             </tr>
 
+            <!-- Script for update and delete function -->
+          <script src="../../resources/js/functions.js"></script>
+
 <?php
+            include '../inc/edit_product.php';
             endforeach;
 
         } else {

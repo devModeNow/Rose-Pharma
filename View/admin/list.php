@@ -4,7 +4,7 @@
 
     if(isset($_SESSION['userid'])){
 
-        include '../inc/modals.php';
+      include '../inc/modals.php';
 
 ?>
         
