@@ -1,7 +1,6 @@
 <table class="table" id="data-table">
                         <thead>
                             <tr>
-                                <th> ID </th>
                                 <th> Name </th>
                                 <th> Actions </th>
                             </tr>
@@ -21,7 +20,6 @@
                     ?>
 
                                 <tr>
-                                    <td> <?= $result['id'] ?> </td>
                                     <td> <?= $result['name'] ?> </td>
                                     <td>
                                         <button class="btn btn-danger" onclick="deleteCategory(<?= $result['id'] ?>)">Delete</button>

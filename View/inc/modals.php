@@ -54,6 +54,14 @@
                     <label for="Code"> Quantity </label>
                     <input type="number" id="quantity" required name="quantity" class="form-control">
                 </div>
+
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-4">
+                <label for="Code"> Expiration Date </label>
+                <input type="date" id="expiration" required name="quantity" class="form-control">
+              </div>
             </div>
 
             <div class="row mt-5">
@@ -73,7 +81,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="addProd" onclick="addMedicine()" class="btn btn-primary">Save changes</button>
+        <button type="button" id="addProd" onclick="addMedicine()" class="btn btn-primary">Add Medicine</button>
       </div>
     </div>
   </div>

@@ -24,22 +24,26 @@
                 $upd = $conn->query("UPDATE $table SET `is_online` = 1 WHERE `id` = ".$res['id']);
                 $details = $conn->query("SELECT * FROM tbl_userprofile WHERE user_id = ".$res['id']);
 
-                session_start();
-                session_unset($_SESSION['err_message']);
                 $_SESSION['userid'] = $res['id'];
+                $_SESSION['userType'] = $res['user_type_id'];
                 $_SESSION['profile'] = $details->fetch_array();
 
                 // redirect to admin dashboard
+                // echo $res['user_type_id'].' admin';
                 header('location:view/admin/');
 
             } else {
 
                 // Update login table, input last login timestamp
                 $upd = $conn->query("UPDATE $table SET `is_online` = 1 WHERE `id` = ".$res['id']);
+                $details = $conn->query("SELECT * FROM tbl_userprofile WHERE user_id = ".$res['id']);
 
                 $_SESSION['userid'] = $res['id'];
+                $_SESSION['userType'] = $res['user_type_id'];
+                $_SESSION['profile'] = $details->fetch_array();
 
-                // redirect to admin dashboard
+                // redirect to cashier dashboard
+                // echo $res['user_type_id'].' cashier';
                 header('location:view/cashier/');
 
             }

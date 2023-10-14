@@ -14,8 +14,8 @@ if(isset($result['type_id'])){
 
 ?>
 
-<select class="form-control <?php if(isset($result['type_id'])) {echo 'typeEdit'; } else { echo 'type'; } ?>" name="type" required>
-<option value="<?php if(isset($result['type_id'])) { echo $result['type_id']; } else { echo ""; } ?>"> <?php if(isset($result['type_id'])) { echo $type['name']; } else { echo "Choose Type"; } ?> </option>
+<select class="form-control <?php if(isset($result['type_id'])) {echo 'typeEdit'; } else { echo 'type'; } ?>" name="type" id="type" required>
+<option value="<?php if(isset($result['type_id']) && $result['type_id'] != 0) { echo $result['type_id']; } else { echo ""; } ?>"> <?php if(isset($result['type_id']) && $result['type_id'] != 0) { echo $type['name']; } else { echo "Choose Type"; } ?> </option>
 
 <?php
 

@@ -1,0 +1,5 @@
+.meds:hover{
+    cursor: pointer;
+    background: rgba(200, 200, 200, 0.5);
+    color: rgb(200, 10, 10);
+}

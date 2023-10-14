@@ -52,6 +52,13 @@
             </div>
 
             <div class="row mt-5">
+              <div class="col-4">
+                <label for="Code"> Expiration Date </label>
+                <input type="date" value="<?php echo $result['expiration'] ?>" name="expiration" required class="form-control">
+              </div>
+            </div>
+
+            <div class="row mt-5">
                 <div class="col-12">
                     <label for="Price"> Description </label>
                     <textarea  class="form-control descriptionEdit" name="description"><?= $result['description'] ?></textarea>

@@ -1,4 +1,4 @@
-<div class="adminx-container d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center">
       <div class="page-login">
         <div class="text-center">
           <a class="navbar-brand mb-4 h1" href="">

@@ -14,8 +14,8 @@ if(isset($result['category_id'])){
 
 ?>
 
-<select class="form-control <?php if(isset($result['category_id'])) {echo 'categoryEdit'; } else { echo 'category'; } ?>" name="category" required>
-    <option value="<?php if(isset($result['category_id'])) { echo $result['category_id']; } else { echo ""; } ?>"> <?php if(isset($result['category_id'])) { echo $cat['name']; } else { echo "Choose Category"; } ?> </option>
+<select class="form-control <?php if(isset($result['category_id'])) {echo 'categoryEdit'; } else { echo 'category'; } ?>" name="category" id="category" required>
+    <option value="<?php if(isset($result['category_id']) && $result['category_id'] != 0) { echo $result['category_id']; } else { echo ""; } ?>"> <?php if(isset($result['category_id']) && $result['category_id'] != 0) { echo $cat['name']; } else { echo "Choose Category"; } ?> </option>
 
 <?php
 

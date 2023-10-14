@@ -2,6 +2,8 @@
 
     require 'header.php';
 
+    if(isset($_SESSION['userid']) && $_SESSION['userType']  == 1){
+
 ?>
 
 <nav class="navbar navbar-expand justify-content-between fixed-top">
@@ -175,3 +177,63 @@
         <!-- <div class="adminx-aside">
 
         </div> -->
+
+<?php } else { ?>
+
+  <nav class="navbar navbar-expand justify-content-between fixed-top">
+        <a class="navbar-brand mb-0 h1 d-none d-md-block" href="">
+          <img src="./demo/img/logo.png" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+          Rose Pharmacy Bongabon - Cashier
+        </a>
+
+        <div class="d-flex flex-1 d-block d-md-none">
+          <a href="#" class="sidebar-toggle ml-3">
+            <i data-feather="menu"></i>
+          </a>
+        </div>
+
+        <ul class="navbar-nav d-flex justify-content-end mr-2">
+          <li class="nav-item dropdown">
+            <a class="nav-link avatar-with-name" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">
+              <img src="../../src/media/defUser.png" class="d-inline-block align-top" alt="">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">My Profile</a>
+              <a class="dropdown-item" href="#">My Tasks</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <span class="ml-4"> <?php $data = $_SESSION['profile']; echo $data['firstname'].' '.$data['lastname'] ?> </span>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" href="../logout.php">Sign out</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- expand-hover push -->
+      <!-- Sidebar -->
+      <div class="adminx-sidebar expand-hover push">
+        <ul class="sidebar-nav">
+          <li class="sidebar-nav-item">
+            <a href="../cashier/" class="sidebar-nav-link active">
+              <span class="sidebar-nav-icon">
+                <i data-feather="home"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Dashboard
+              </span>
+              <span class="sidebar-nav-end">
+
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div><!-- Sidebar End -->
+
+      <!-- adminx-content-aside -->
+      <div class="adminx-content">
+        <!-- <div class="adminx-aside">
+
+        </div> -->
+
+<?php } ?>

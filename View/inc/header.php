@@ -12,6 +12,7 @@
 
     <?php if(isset($_SESSION['userid'])): ?>
     <link rel="stylesheet" type="text/css" href="../../dist/css/adminx.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../dist/css/custom.css" media="screen" />
     <?php else: ?>
     <link rel="stylesheet" type="text/css" href="dist/css/adminx.css" media="screen" />
     <?php endif; ?>

@@ -230,8 +230,11 @@ function addMedicine(){
     let category = $('#category').val();
     let type = $('#type').val();
     let quantity = $('#quantity').val();
+    let expiration = $('#expiration').val();
     let description = $('#description').val();
     let isPrescribe = "";
+
+    console.log(expiration)
 
     if($('#isPrescribe').is(':checked')){
         isPrescribe = true;
@@ -245,7 +248,8 @@ function addMedicine(){
             'price':price, 
             'category':category, 
             'type':type, 
-            'quantity':quantity, 
+            'quantity':quantity,
+            'expiration':expiration,
             'description':description, 
             'prescribe':isPrescribe,
         }
@@ -271,7 +275,6 @@ function addMedicine(){
                     var notyf = new Notyf();
                     notyf.success(data.message);
                     setTimeout(()=>{location.reload()}, 1000)
-                    
 
                 } else {
                     $('#errMessage').text("")

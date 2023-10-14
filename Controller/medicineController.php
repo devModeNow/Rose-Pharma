@@ -215,11 +215,12 @@ if(isset($_POST['addMed'])){
     $category = validate($conn->real_escape_string($data['category']));
     $type = validate($conn->real_escape_string($data['type']));
     $quantity = validate($conn->real_escape_string($data['quantity']));
+    $expiration = validate($conn->real_escape_string($data['expiration']));
     $description = validate($conn->real_escape_string($data['description']));
     $prescribe = validate($conn->real_escape_string($data['prescribe']));
 
-    $insertMed = $conn->query("INSERT INTO tbl_pharma_products (`code`,`name`,`price`,`category_id`,`type_id`,`quantity`,`description`,`prescription`)
-                              VALUES (\"$code\",\"$name\",\"$price\",\"$category\",\"$type\",\"$quantity\",\"$description\",\"$prescribe\")");
+    $insertMed = $conn->query("INSERT INTO tbl_pharma_products (`code`,`name`,`price`,`category_id`,`type_id`,`quantity`,`expiration`,`description`,`prescription`)
+                              VALUES (\"$code\",\"$name\",\"$price\",\"$category\",\"$type\",\"$quantity\",\"$expiration\",\"$description\",\"$prescribe\")");
 
     if($insertMed){
 
@@ -247,6 +248,7 @@ if(isset($_POST['updateMed'])){
     $category = validate($conn->real_escape_string($_POST['category']));
     $type = validate($conn->real_escape_string($_POST['type']));
     $quantity = validate($conn->real_escape_string($_POST['quantity']));
+    $expiration = validate($conn->real_escape_string($_POST['expiration']));
     $description = validate($conn->real_escape_string($_POST['description']));
     @$prescribe = validate($conn->real_escape_string($_POST['prescribe']));
 
@@ -262,6 +264,7 @@ if(isset($_POST['updateMed'])){
                                                               category_id = \"$category\", 
                                                               type_id = \"$type\", 
                                                               quantity = \"$quantity\", 
+                                                              expiration = \"$expiration\", 
                                                               description = \"$description\", 
                                                               prescription = \"$prescribe\" WHERE id = \"$id\"");
 
