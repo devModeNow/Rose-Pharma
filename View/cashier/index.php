@@ -45,9 +45,11 @@
               <div class="col-lg-4 col-sm-12">
                 <div class="card" style="height: 20rem; display: flex; flex-direction: column;">
                   <div class="card-body" style="flex: 1;">
-                    <h5 class="card-title font-weight-bold">List of Medicine</h5>
+                    <h5 class="card-title font-weight-bold">Cart</h5>
                     <hr>
-                    
+                    <div class="row" id="cartList">
+                      <!-- Medicine cart list -->
+                    </div>
                   </div>
                   <button style="width: 100%;" class="btn btn-primary"> Checkout </button>
                 </div>

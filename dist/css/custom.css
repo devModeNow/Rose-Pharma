@@ -1,3 +1,7 @@
+.meds {
+    width: 100%;
+}
+
 .meds:hover{
     cursor: pointer;
     background: rgba(200, 200, 200, 0.5);

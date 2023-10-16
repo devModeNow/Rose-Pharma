@@ -20,14 +20,13 @@
 ?>
 
         <div class="col-lg-3 col-sm-12 mb-3">
-            <div class="card meds">
+        <button class="card meds" id="addToCartButton_<?= $meds['code'] ?>" onclick="addToCart('<?= $meds['code'] ?>' , '<?= $meds['name'] ?>' , <?= $meds['price'] ?>)">
                 <div class="card-body">
                     <h5> <?= $meds['name'] ?> </h5>
                     <span class="badge badge-pill badge-success"> &#8369; <?= $meds['price'] ?> </span>
                 </div>
-            </div>
+        </button>
         </div>
-
 <?php 
 
         endforeach;

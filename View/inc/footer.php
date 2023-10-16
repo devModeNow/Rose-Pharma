@@ -17,6 +17,7 @@
 
     <?php if(isset($_SESSION['userType']) && $_SESSION['userType'] == 2) { ?>
       <script src="../../resources/js/cashier.js"></script>
+      <script src="../../resources/js/cart.js"></script>
     <?php } ?>
 
       <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
